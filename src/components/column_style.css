@@ -1,0 +1,70 @@
+.column {
+  background: rgba(199, 199, 199, 0.678);;
+  width: 25%;
+  height: 50%;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  overflow-y: auto;
+}
+.column-content {
+  height: 80%;
+}
+.add-task {
+  width: 80%;
+  padding: 8px 8px 20px 8px;
+  border-radius: 3px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.562);
+  transition: 0.6s;
+}
+.task-name  {
+  border: none;
+  border-bottom: solid 2px black;
+  background: transparent;
+}
+.task-name::placeholder {
+  color: black;
+}
+.task-name:focus {
+  outline: none;
+  border-bottom: solid 2px black;
+}
+.task-date {
+  border: none;
+  border-bottom: solid 2px black;
+  background: transparent;
+}
+.task-date:focus {
+  outline: none;
+  border-bottom: solid 2px black;
+}
+.task-plus {
+  color: black;
+  height: 30px;
+  width: 30px;
+  transition: 0.2s;
+}
+.task-plus:hover {
+  cursor: pointer;
+}
+.column-delete {
+  padding: 8px 20px;
+  background-color: rgb(255, 253, 253);
+  color: black;
+  border: none;
+  transition: 0.2s;
+  float: left;
+}
+.column-delete:hover {
+  background-color: rgb(128, 7, 7);
+  color: white;
+  cursor: pointer;
+}
