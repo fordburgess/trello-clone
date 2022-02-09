@@ -14,7 +14,6 @@ function App() {
     setId(prevState => prevState + 1)
     setName('')
   }
-// hello
   const deleteColumn = (id) => {
     setColumns(columns.filter(column => column.id !== id))
   }
