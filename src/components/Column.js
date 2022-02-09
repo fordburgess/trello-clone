@@ -1,19 +1,15 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Task from './Task'
 import './column_style.css'
-import { AiOutlineMenu, AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlineMenu } from 'react-icons/ai'
+import AddTask from './AddTask';
 
-const Column = (props) => {
-  const [taskId, setTaskId] = useState(0);
+const Column = ({id, title, deleteColumn }) => {
   const [tasks, setTasks] = useState([])
-  const inputName = useRef()
-  const inputDate = useRef()
 
-  const createTask = (id, name, date) => {
+  const addTask = (id, name, date) => {
     const newTasks = {id: id, name: name, date: date}
     setTasks([...tasks, newTasks])
-    setTaskId(prevState => prevState + 1)
-    console.log(tasks)
   }
 
   const deleteTask = (taskKey) => {
@@ -23,25 +19,17 @@ const Column = (props) => {
 
   return <div className='column'>
     <div class='column-header'>
-      {props.title}
+      {title}
       <AiOutlineMenu />
     </div>
     <div class='column-content'>
         {tasks.map((task) => {
           return <Task key={task.id} id={task.id} title={task.name} date={task.date} deleteTask={deleteTask} />
         })}
-      <form class='add-task'>
-        <div class='task-input'>
-          <input type='text' class='task-name' ref={inputName} placeholder='task name'></input>
-          <input type='date'class='task-date' ref={inputDate}></input>
-        </div>
-        <a onClick={() => createTask(taskId, inputName.current.value, inputDate.current.value)}>
-          <AiOutlinePlus class='task-plus'/>
-        </a>
-      </form>
+    <AddTask createTask={addTask} />
     </div>
     <div class='column-footer'>
-      <button class='column-delete'>Delete Column</button>
+      <button class='column-delete' onClick={() => deleteColumn(id)}>Delete Column</button>
     </div>
   </div>;
 };

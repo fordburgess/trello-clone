@@ -1,9 +1,9 @@
 .column {
   background: rgba(199, 199, 199, 0.678);;
-  width: 25%;
-  height: 50%;
-  margin-left: 20px;
-  margin-right: 20px;
+  width: auto;
+  /* height: auto; */
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -11,14 +11,12 @@
   text-align: center;
   overflow-y: auto;
 }
-.column-content {
-  height: 80%;
-}
 .add-task {
   width: 80%;
   padding: 8px 8px 20px 8px;
   border-radius: 3px;
   margin: auto;
+  margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;

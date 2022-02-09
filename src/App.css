@@ -13,7 +13,7 @@
   box-sizing: border-box;
   width: 100vw;
   height: 8%;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   display: flex;
   justify-content: space-between;
   padding: 10px;
@@ -23,16 +23,60 @@
 .header-div {
   width: 33%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 20px;
+}
+.header-div-left {
+  padding-left: 20px;
+  color: white;
+}
+.header-div-right {
+  display: flex;
+  justify-content: flex-end;
+}
+.header-div-right a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+  padding-right: 20px;
+}
+.sub-header {
+  padding-left: 20px;
+  margin-top: 17px;
+}
+.add-input {
+  margin-right: 10px;
+  padding: 7px 15px;
+  background-color: rgba(255, 255, 255, 0.616);
+  border: none;
+}
+.add-input:focus {
+  outline: none;
+}
+.add-button {
+  padding: 5px 17px;
+  background-color: rgba(255, 255, 255, 0.795);
+  color: black;
+  margin-left: 5px;
+  border: none;
+  transition: 0.6s;
+}
+.add-button:hover {
+  background-color: rgba(218, 218, 218, 0.795);
+  transform: scale(0.97);
+  outline: none;
+  cursor: pointer;
+}
+.add-button:focus {
+  outline: none;
 }
 .container {
   margin: 0 auto;
   display: flex;
   width: 95%;
-  height: 95%;
-  justify-content: space-between;
+  height: auto;
+  justify-content: flex-end;
   padding: 20px;
 }
 .column-header {
