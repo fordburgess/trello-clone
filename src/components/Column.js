@@ -3,10 +3,11 @@ import Task from './Task'
 import './column_style.css'
 import { AiOutlineMenu } from 'react-icons/ai'
 import AddTask from './AddTask';
+// import { HeightContext } from '../App';
 
 const Column = ({id, title, deleteColumn }) => {
   const [tasks, setTasks] = useState([])
-
+  // const style = useContext(HeightContext)
   const addTask = (id, name, date) => {
     const newTasks = {id: id, name: name, date: date}
     setTasks([...tasks, newTasks])
@@ -17,7 +18,7 @@ const Column = ({id, title, deleteColumn }) => {
     console.log(taskKey)
   }
 
-  return <div className='column'>
+  return <div className='column' >
     <div class='column-header'>
       {title}
       <AiOutlineMenu />

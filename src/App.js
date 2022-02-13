@@ -1,12 +1,16 @@
+import React from 'react'
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Column from './components/Column'
 import Header from './components/Header'
+export const HeightContext = React.createContext();
+
 
 function App() {
   const [name, setName] = useState('')
   const [id, setId] = useState(0)
   const [columns, setColumns] = useState([{}])
+  // const uniqueHeight = { height : "auto" }
 
   const createColumn = (id, title) => {
     const newColumn = { id: id, title: title }
@@ -24,11 +28,13 @@ function App() {
         <input type='text' class='add-input' placeholder='column name' onChange={(e) => setName(e.target.value)}/>
         <button class='add-button' onClick={() => createColumn(id, name)}>Add Column</button>
       </div>
-      <div className='container'>
+      {/* <HeightContext.Provider value={uniqueHeight}> */}
+        <div className='container'>
         {columns.map(column => {
           return <Column key={column.id} id={column.id} title={column.title} deleteColumn={deleteColumn}/>
         })}
-      </div>
+        </div>
+      {/* </HeightContext.Provider> */}
     </div>
   );
 }

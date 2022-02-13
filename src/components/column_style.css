@@ -1,7 +1,6 @@
 .column {
   background: rgba(199, 199, 199, 0.678);;
   width: auto;
-  /* height: auto; */
   margin-left: 10px;
   margin-right: 10px;
   padding: 20px;
@@ -13,7 +12,7 @@
 }
 .add-task {
   width: 80%;
-  padding: 8px 8px 20px 8px;
+  padding: 8px 20px 20px 8px;
   border-radius: 3px;
   margin: auto;
   margin-bottom: 30px;
@@ -48,6 +47,7 @@
   color: black;
   height: 30px;
   width: 30px;
+  padding-top: 25px;
   transition: 0.2s;
 }
 .task-plus:hover {
