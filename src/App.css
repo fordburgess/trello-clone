@@ -42,7 +42,9 @@
   padding-right: 20px;
 }
 .sub-header {
+  position: relative;
   padding-left: 20px;
+  padding-right: 40px;
   margin-top: 17px;
 }
 .add-input {

@@ -1,4 +1,5 @@
 import React from 'react';
+import LoginButton from './LoginButton';
 
 const Header = () => {
   return <div className='header'>
@@ -9,6 +10,7 @@ const Header = () => {
       <a href="#" className='header-link'>Settings</a>
       <a href="#" className='header-link'>Placeholder</a>
       <a href="#" className='header-link'>Log Out</a>
+      <LoginButton />
     </div>
   </div>;
 };

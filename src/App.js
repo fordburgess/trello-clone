@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import { useState } from 'react';
 import Column from './components/Column'
 import Header from './components/Header'
 export const HeightContext = React.createContext();
@@ -21,6 +20,29 @@ function App() {
   const deleteColumn = (id) => {
     setColumns(columns.filter(column => column.id !== id))
   }
+
+  const endpoint = 'https://trello-clone1.hasura.app/v1/graphql'
+  const headers = {
+    'x-hasura-admin-secret': '6sgmC96b5CkHOai3cwJbfzMLeTqJebUemTdLayvc6rwpTRc6vlDWnuyP4qvfLk24',
+    'content-type' : 'application/json'
+  }
+  const graphqlQuery = {
+    "operationName" : 'fetchTasks',
+    "query" : `query fetchTasks {
+      tasks {
+          title
+        }
+      }`,
+  }
+  const options = {
+    "method": "POST",
+    "headers": headers,
+    "body": JSON.stringify(graphqlQuery)
+  }
+  useEffect(() => {
+    fetch(endpoint, options).then(res => res.json()).then(data => console.log(data))
+  }, []);
+
   return (
     <div className="App">
       <Header />

@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Auth0Provider
+    domain='dev-gmfec22i.us.auth0.com'
+    clientId='jSRFg5p3h5ZTkDOYIATuhrfHSXtFzAy7'
+    redirectUri={window.location.origin}
+    audience = 'hasura'
+    >
+      <App />
+    </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
