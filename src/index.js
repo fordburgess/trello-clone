@@ -17,8 +17,8 @@ ReactDOM.render(
     >
     <BrowserRouter>
       <Routes>
-        <App />
-        <Login />
+        <Route path='/' component={Login}/>
+        <Route path='/' componenet={App} />
       </Routes>
     </BrowserRouter>
     </Auth0Provider>
