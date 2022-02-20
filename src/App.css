@@ -3,7 +3,7 @@
 .App {
   height: 100vh;
   width: 100vw;
-  background-image: url('../images/background2.jpeg');
+  background: linear-gradient(to bottom, rgb(82, 6, 6), rgb(194, 11, 11));
   background-position: center;
   background-size: cover;
   font-family: Poppins;
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background: rgba(65, 64, 64, 0.678);
+  background: rgba(255, 255, 255, 0.678);
   align-items: center;
 }
 .header-div {
@@ -29,7 +29,7 @@
 }
 .header-div-left {
   padding-left: 20px;
-  color: white;
+  color: black;
 }
 .header-div-right {
   display: flex;
@@ -37,7 +37,7 @@
 }
 .header-div-right a {
   text-decoration: none;
-  color: white;
+  color: black;
   margin-left: 20px;
   padding-right: 20px;
 }

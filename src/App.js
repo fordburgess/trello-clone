@@ -10,7 +10,6 @@ function App() {
   const [id, setId] = useState(0)
   const [columns, setColumns] = useState([{}])
   // const uniqueHeight = { height : "auto" }
-
   const createColumn = (id, title) => {
     const newColumn = { id: id, title: title }
     setColumns([...columns, newColumn])
@@ -20,7 +19,7 @@ function App() {
   const deleteColumn = (id) => {
     setColumns(columns.filter(column => column.id !== id))
   }
-
+  // column fetch
   const endpoint = 'https://trello-clone1.hasura.app/v1/graphql'
   const headers = {
     'x-hasura-admin-secret': '6sgmC96b5CkHOai3cwJbfzMLeTqJebUemTdLayvc6rwpTRc6vlDWnuyP4qvfLk24',
@@ -30,8 +29,8 @@ function App() {
     "operationName" : 'fetchTasks',
     "query" : `query fetchTasks {
       tasks {
-          title
-        }
+        status
+      }
       }`,
   }
   const options = {
@@ -40,7 +39,18 @@ function App() {
     "body": JSON.stringify(graphqlQuery)
   }
   useEffect(() => {
-    fetch(endpoint, options).then(res => res.json()).then(data => console.log(data))
+    fetch(endpoint, options).then(res => res.json()).then(data => {
+      const tasks = [...data.data.tasks]
+      const statuses = [];
+      tasks.forEach(task => {
+        if (!statuses.includes(task.status)) {
+          statuses.push(task.status)
+        }
+      });
+      statuses.forEach(status => {
+        createColumn(id, status)
+      })
+    })
   }, []);
 
   return (
@@ -53,6 +63,7 @@ function App() {
       {/* <HeightContext.Provider value={uniqueHeight}> */}
         <div className='container'>
         {columns.map(column => {
+          console.log(column)
           return <Column key={column.id} id={column.id} title={column.title} deleteColumn={deleteColumn}/>
         })}
         </div>

@@ -12,7 +12,6 @@ const Column = ({id, title, deleteColumn }) => {
     const newTasks = {id: id, name: name, date: date}
     setTasks([...tasks, newTasks])
   }
-
   const deleteTask = (taskKey) => {
     setTasks(tasks.filter(task => task.id !== taskKey))
     console.log(taskKey)
