@@ -14,39 +14,38 @@ const Column = ({id, title, deleteColumn }) => {
   }
   const deleteTask = (taskKey) => {
     setTasks(tasks.filter(task => task.id !== taskKey))
-    console.log(taskKey)
   }
-  const endpoint = 'https://trello-clone1.hasura.app/v1/graphql';
-  const headers = {
-    'x-hasura-admin-secret': '6sgmC96b5CkHOai3cwJbfzMLeTqJebUemTdLayvc6rwpTRc6vlDWnuyP4qvfLk24',
-    'content-type' : 'application/json'
-  }
-  const graphqlQuery = {
-    "operationName" : 'fetchTasks',
-    "query" : `query fetchTasks {
-      tasks {
-        title
-        status
-        due_by
-        id
-      }
-      }`,
-  }
-  const options = {
-    "method": "POST",
-    "headers": headers,
-    "body": JSON.stringify(graphqlQuery)
-  }
-  useEffect(() => {
-    fetch(endpoint, options).then(res => res.json()).then(data => {
-      const tasks = [...data.data.tasks]
-      tasks.forEach(task => {
-        if (task.status === title) {
-          addTask(task.id, task.title, task.due_by)
-        }
-      })
-    });
-  }, []);
+  // const endpoint = 'https://trello-clone1.hasura.app/v1/graphql';
+  // const headers = {
+  //   'x-hasura-admin-secret': '6sgmC96b5CkHOai3cwJbfzMLeTqJebUemTdLayvc6rwpTRc6vlDWnuyP4qvfLk24',
+  //   'content-type' : 'application/json'
+  // }
+  // const graphqlQuery = {
+  //   "operationName" : 'fetchTasks',
+  //   "query" : `query fetchTasks {
+  //     tasks {
+  //       title
+  //       status
+  //       due_by
+  //       id
+  //     }
+  //     }`,
+  // }
+  // const options = {
+  //   "method": "POST",
+  //   "headers": headers,
+  //   "body": JSON.stringify(graphqlQuery)
+  // }
+  // useEffect(() => {
+  //   fetch(endpoint, options).then(res => res.json()).then(data => {
+  //     const tasks = [...data.data.tasks]
+  //     tasks.forEach(task => {
+  //       if (task.status === title) {
+  //         addTask(task.id, task.title, task.due_by)
+  //       }
+  //     })
+  //   });
+  // }, []);
 
   return <div className='column' >
     <div class='column-header'>

@@ -1,8 +1,11 @@
 import React from 'react'
+// import LoginButton from './LoginButton';
 
 const Login = () => {
   return (
-    <div>login</div>
+    <div class='login-container'>
+      Hello
+    </div>
   )
 }
 

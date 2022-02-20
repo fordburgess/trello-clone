@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css';
 import App from './App';
-import Login from './login';
+import Login from './Login';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from "@auth0/auth0-react";
 
@@ -11,11 +12,15 @@ ReactDOM.render(
     <Auth0Provider
     domain='dev-gmfec22i.us.auth0.com'
     clientId='jSRFg5p3h5ZTkDOYIATuhrfHSXtFzAy7'
-    redirectUri='http://localhost:3000'
+    redirectUri={window.location.origin}
     audience = 'hasura'
     >
-      <App />
-      <Login />
+    <BrowserRouter>
+      <Routes>
+        <App />
+        <Login />
+      </Routes>
+    </BrowserRouter>
     </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')
