@@ -26,8 +26,8 @@ function App() {
     'content-type' : 'application/json'
   }
   const graphqlQuery = {
-    "operationName" : 'fetchTasks',
-    "query" : `query fetchTasks {
+    "operationName" : 'fetchColumns',
+    "query" : `query fetchColumns {
       tasks {
         status
       }
@@ -63,7 +63,6 @@ function App() {
       {/* <HeightContext.Provider value={uniqueHeight}> */}
         <div className='container'>
         {columns.map(column => {
-          console.log(column)
           return <Column key={column.id} id={column.id} title={column.title} deleteColumn={deleteColumn}/>
         })}
         </div>
