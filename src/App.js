@@ -19,7 +19,24 @@ function App() {
   const deleteColumn = columnId => {
     setColumns(columns.filter(column => column.columnId !== columnId))
   }
-  //column fetch
+
+  // user sync
+
+  function userSyncRule(user, context, callback) {
+    const userId = user.user_id
+    const name = user.first_name
+
+    const query = `mutation($userId: String!, $name: String) {
+      insert_users(objects: [{
+        id: $userId, name: $name, last_seen: "now()"
+      }], on_conflict: {constraint: users_pkey, update_columns: [last_seen, name]}
+      ) {
+        affected_rows
+      }
+    }`;
+  }
+
+  // column fetch
   const endpoint = 'https://trello-clone1.hasura.app/v1/graphql'
   const headers = {
     'x-hasura-admin-secret': '6sgmC96b5CkHOai3cwJbfzMLeTqJebUemTdLayvc6rwpTRc6vlDWnuyP4qvfLk24',

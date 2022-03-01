@@ -13,6 +13,11 @@
   align-items: center;
   justify-content: center;
 }
+.clipboard {
+  height: 150px;
+  width: 105px;
+  color: rgb(143, 19, 19);
+}
 .content {
   text-align: center;
 }
@@ -26,4 +31,11 @@
   color: white;
   border: none;
   font-size: 20px;
+  transition: 0.4s ease;
+}
+.login-button:hover {
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  color: rgb(146, 7, 7);
+  border: solid 2px rgb(146, 7, 7);
 }

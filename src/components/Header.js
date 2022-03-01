@@ -1,4 +1,5 @@
 import React from 'react';
+import { LogoutButton } from './Auth0';
 
 const Header = () => {
   return <div className='header'>
@@ -8,7 +9,7 @@ const Header = () => {
     <div className='header-div-right'>
       <a href="#" className='header-link'>Settings</a>
       <a href="#" className='header-link'>Placeholder</a>
-      <a href="#" className='header-link'>Log Out</a>
+      <LogoutButton />
     </div>
   </div>;
 };
