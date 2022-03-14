@@ -12,7 +12,7 @@ ReactDOM.render(
     <Auth0Provider
       domain="dev-gmfec22i.us.auth0.com"
       clientId="jSRFg5p3h5ZTkDOYIATuhrfHSXtFzAy7"
-      redirectUri={window.location.origin}
+      redirectUri='http://localhost:3000/app'
       audience="hasura"
     >
       <BrowserRouter>
