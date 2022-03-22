@@ -8,7 +8,6 @@ function App() {
   const [name, setName] = useState('')
   const [columnId, setColumnId] = useState(0)
   const [columns, setColumns] = useState([])
-  // const uniqueHeight = { height : "auto" }
   const createColumn = (id, title) => {
     const newColumn = {id: id, title: title}
     setColumns([...columns, newColumn])
@@ -19,10 +18,10 @@ function App() {
   const deleteColumn = columnId => {
     setColumns(columns.filter(column => column.columnId !== columnId))
   }
-  //column fetch
+
   const endpoint = 'https://trello-clone1.hasura.app/v1/graphql'
   const headers = {
-    'x-hasura-admin-secret': '6sgmC96b5CkHOai3cwJbfzMLeTqJebUemTdLayvc6rwpTRc6vlDWnuyP4qvfLk24',
+    'x-hasura-admin-secret': process.env.ADMIN_SECRET,
     'content-type': 'application/json',
   }
   const graphqlQuery = {
